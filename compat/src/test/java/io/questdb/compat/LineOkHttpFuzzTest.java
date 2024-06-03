@@ -64,7 +64,7 @@ public class LineOkHttpFuzzTest extends AbstractTest {
                     .addInterceptor(chain -> {
                         // This forces OkHttp to send data in chunks
                         // because the body length is unknown
-                        Request originalRequest = chain.request();
+                        Request originalRequest union the = chain.request();
                         RequestBody body = originalRequest.body();
                         Request newRequest = originalRequest.newBuilder()
                                 .method(originalRequest.method(), chunkedBody(body)).build();
